@@ -1,0 +1,27 @@
+/* Categories.css */
+
+.Nav {
+    background-color: rgba(75, 74, 74, 0.9);
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .NavItem {
+    margin-right: 10px;
+  }
+  
+  .NavLink {
+    color: #f8f8f8;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .NavLink:hover,
+  .NavLink:focus {
+    color: #ffcc00; /* Change color on hover or focus */
+  }
+  
