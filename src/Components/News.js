@@ -23,7 +23,7 @@ function News({ type }) {
           setNewsData(JSON.parse(cachedData));
         } else {
           const response = await fetch(
-            `https://newsapi.org/v2/everything?q=${type}&sortBy=popularity&apiKey=${apiKey}&pageSize=${6}`
+            `https://newsapi.org/v2/everything?q=${type}&sortBy=popularity&apiKey=${apiKey}&pageSize=${9}`
           );
 
           if (!response.ok) {

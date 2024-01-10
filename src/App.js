@@ -1,44 +1,56 @@
-import React from "react";
-import { Container, Navbar, Nav, Col } from "react-bootstrap";
+import React, { useState } from "react";
+import { Container, Navbar, Nav, NavDropdown, Col } from "react-bootstrap";
 import News from "./Components/News";
 
 function App() {
   const newsTypes = [
-    "Politics",
+    "Entertainment",
+    "Trending",
     "Technology",
     "Business",
-    // "Health",
-    // "Environment",
-    // "Fashion",
-    // "Travel",
-    // "Food",
-    // "World",
-    // "Education",
-    // "Culture",
-    // "Finance",
+    "Health",
+    "Environment",
+    "Fashion",
+    "Travel",
+    "Food",
+    "World",
+    "Education",
+    "Culture",
+    "Finance",
     // Add more categories as needed
   ];
 
+  const [selectedCategory, setSelectedCategory] = useState(newsTypes[0]);
+
   return (
     <Container>
-      <Navbar bg="light" expand="lg" fixed="top">
-        <Navbar.Brand href="#">Professional News Dashboard</Navbar.Brand>
+      <Navbar className="Nav" expand="lg" fixed="top">
+        <Navbar.Brand className="logo" href="#">Zing-Zoom-News</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            {newsTypes.map((type, index) => (
-              <Nav.Link key={index} href={`#${type.toLowerCase()}`}>
-                {type}
-              </Nav.Link>
-            ))}
+          <Nav className="mr-right">
+            <NavDropdown title="Categories" className="N" id="basic-nav-dropdown">
+              {newsTypes.map((type, index) => (
+                <NavDropdown.Item className="ND"
+                  key={index}
+                  onClick={() => setSelectedCategory(type)}
+                >
+                  {type}
+                </NavDropdown.Item>
+              ))}
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
 
-      <div style={{ marginTop: "70px" }}> {/* Adjust the margin based on your navbar height */}
+      <div style={{ marginTop: "70px" }}>
         {newsTypes.map((type, index) => (
-          <Col key={index} id={type.toLowerCase()}>
-            <h2>{type}</h2>
+          <Col
+            key={index}
+            id={type.toLowerCase()}
+            style={{ display: type === selectedCategory ? "block" : "none" }}
+          >
+            <h2 className="title" id="head">{type}</h2>
             <News type={type} />
           </Col>
         ))}
