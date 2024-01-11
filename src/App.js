@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Container, Navbar, Nav, NavDropdown, Col } from "react-bootstrap";
 import News from "./Components/News";
+import logo from "../src/Asstes/logo.png"
 
 function App() {
   const newsTypes = [
@@ -25,7 +26,7 @@ function App() {
   return (
     <Container>
       <Navbar className="Nav" expand="lg" fixed="top">
-        <Navbar.Brand className="logo" href="#">Zing-Zoom-News</Navbar.Brand>
+        <Navbar.Brand className="logo" href="#"> <img  src={logo} alt="Logo" style={{ width: '100px', height: '100px' }} /></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-right">
@@ -50,7 +51,7 @@ function App() {
             id={type.toLowerCase()}
             style={{ display: type === selectedCategory ? "block" : "none" }}
           >
-            <h2 className="title" id="head">{type}</h2>
+            {/* <h2 className="title" id="head">{type}</h2> */}
             <News type={type} />
           </Col>
         ))}

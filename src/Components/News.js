@@ -57,7 +57,7 @@ function News({ type }) {
         {loading ? (
           <p>Loading...</p>
         ) : (
-          <Row xs={1} md={3} className="g-4">
+          <Row xs={1} md={3} className="g-4" >
             {newsData.length ? (
               newsData.map((newsItem, index) => (
                 <Col key={index} md={4}>
